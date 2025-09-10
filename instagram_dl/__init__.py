@@ -1,7 +1,7 @@
 import sys
-from .instagram_downloader import InstagramDownloader
-from .instagram_downloader_gui import InstagramDownloaderGUI
-from .profile_downloader import InstagramProfileDownloader
+from .downloader import InstagramDownloader
+from .gui import InstagramDownloaderGUI
+from .profile import InstagramProfileDownloader
 
 __version__ = '1.0.0'
 
