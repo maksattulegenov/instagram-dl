@@ -7,7 +7,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox, filedialog
 from typing import Optional
 from .downloader import InstagramDownloader
-from .profile import ProfileDownloader
+from .profile import InstagramProfileDownloader
 
 class InstagramDownloaderGUI:
     """GUI class for Instagram Downloader"""
@@ -25,7 +25,7 @@ class InstagramDownloaderGUI:
         self.download_path_var = tk.StringVar(value="downloads")
         
         self.downloader: Optional[InstagramDownloader] = None
-        self.profile_downloader: Optional[ProfileDownloader] = None
+        self.profile_downloader: Optional[InstagramProfileDownloader] = None
         
         self._create_widgets()
         self._create_layout()
@@ -113,7 +113,7 @@ class InstagramDownloaderGUI:
         try:
             self.downloader = InstagramDownloader(self.download_path_var.get())
             if self.downloader.login(username, password):
-                self.profile_downloader = ProfileDownloader(username, password, self.download_path_var.get())
+                self.profile_downloader = InstagramProfileDownloader(username, password, self.download_path_var.get())
                 messagebox.showinfo("Success", "Login successful!")
             else:
                 messagebox.showerror("Error", "Login failed. Please check your credentials.")

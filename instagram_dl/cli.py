@@ -6,7 +6,7 @@ import argparse
 import sys
 from typing import List
 from instagram_dl.downloader import InstagramDownloader
-from instagram_dl.profile import ProfileDownloader
+from instagram_dl.profile import InstagramProfileDownloader
 from instagram_dl.gui import InstagramDownloaderGUI
 
 def parse_args(args: List[str]) -> argparse.Namespace:
@@ -87,48 +87,7 @@ def main():
     try:
         if args.profile:
             # Download profile
-            downloader = ProfileDownloader(args.username, args.password, args.directory)
-            files = downloader.download_profile(args.url, args.max_posts)
-            downloader.close()
-        else:
-            # Download single post
-            downloader = InstagramDownloader(args.directory)
-            if not downloader.login(args.username, args.password):
-                print("Error: Login failed")
-                return
-                
-            files = downloader.download_post(args.url)
-            downloader.close()
-            
-        print(f"Successfully downloaded {len(files)} files")
-        
-    except Exception as e:
-        print(f"Error: {str(e)}")
-        return
-
-def main():
-    """Main entry point for the command-line interface"""
-    args = parse_args(sys.argv[1:])
-    
-    # Launch GUI if requested
-    if args.gui:
-        gui = InstagramDownloaderGUI()
-        gui.run()
-        return
-        
-    # Validate arguments for CLI mode
-    if not args.url:
-        print("Error: URL is required for CLI mode")
-        return
-        
-    if not args.username or not args.password:
-        print("Error: Username and password are required for CLI mode")
-        return
-        
-    try:
-        if args.profile:
-            # Download profile
-            downloader = ProfileDownloader(args.username, args.password, args.directory)
+            downloader = InstagramProfileDownloader(args.username, args.password, args.directory)
             files = downloader.download_profile(args.url, args.max_posts)
             downloader.close()
         else:

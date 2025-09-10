@@ -9,7 +9,7 @@ import re
 from typing import List, Optional
 from .downloader import InstagramDownloader
 
-class ProfileDownloader:
+class InstagramProfileDownloader:
     """Class for downloading all media from an Instagram profile"""
     
     def __init__(self, username: Optional[str] = None, password: Optional[str] = None,
