@@ -5,6 +5,15 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="instagram-dl",
+    version="0.1.0",
+    author="Maksat Tulegenov",
+    author_email="maksat.tulegenov.02@gmail.com",tools import setup, find_packages
+
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
+setup(
+    name="instagram-dl",
     version="1.0.0",
     author="Your Name",
     author_email="your.email@example.com",

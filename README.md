@@ -11,24 +11,46 @@ instagram-dl - download photos and videos from Instagram
 
 # INSTALLATION
 
-To install it right away for all UNIX users (Linux, macOS, etc.), type:
+There are several ways to install and run instagram-dl:
+
+## Method 1: Download the Executable (Windows)
+
+1. Go to https://github.com/maksattulegenov/instagram-dl/releases
+2. Download the latest `instagram-dl.exe`
+3. Place it anywhere on your computer
+4. Double-click to run, or use from command line:
+   ```
+   instagram-dl.exe --help
+   ```
+
+## Method 2: Install using pip (All Platforms)
 
 ```bash
 pip install instagram-dl
 ```
 
-Or install from source:
+Then run using:
+```bash
+instagram-dl --help
+```
+
+## Method 3: Install from source (All Platforms)
 
 ```bash
-git clone https://github.com/yourusername/instagram-dl.git
+git clone https://github.com/maksattulegenov/instagram-dl.git
 cd instagram-dl
-pip install .
+pip install -e .
 ```
 
-Windows users can install using pip as well:
+## Method 4: Run without installing (All Platforms)
+
+If you have Python 3.8 or later installed:
 
 ```bash
-pip install instagram-dl
+git clone https://github.com/maksattulegenov/instagram-dl.git
+cd instagram-dl
+pip install -r requirements.txt
+python -m instagram_dl.cli --help
 ```
 
 # DESCRIPTION
